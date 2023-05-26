@@ -19,7 +19,6 @@ public class TipoUsuario {
 		this.id = id;
 	}
 		
-	
 	public int getId() {
 		return id;
 	}

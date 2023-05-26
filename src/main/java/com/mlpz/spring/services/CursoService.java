@@ -2,21 +2,24 @@ package com.mlpz.spring.services;
 
 import java.util.List;
 
-import com.mlpz.spring.repositories.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
 import com.mlpz.spring.entities.Curso;
+import com.mlpz.spring.repositories.CursoRepository;
 
 @Service
 @Transactional
 public class CursoService {
 
-	@Autowired
-	private CursoRepository cursoRepository;
-	
+	private final CursoRepository cursoRepository;
+
+	public CursoService(CursoRepository cursoRepository) {
+		this.cursoRepository = cursoRepository;
+	}
+
 	public List<Curso> getAll(){
 		return cursoRepository.findAll();
 	}

@@ -2,6 +2,12 @@ package com.mlpz.spring.controllers;
 
 import java.util.List;
 
+import com.mlpz.spring.dto.Message;
+import com.mlpz.spring.entities.Asignatura;
+import com.mlpz.spring.entities.Curso;
+import com.mlpz.spring.entities.Nota;
+import com.mlpz.spring.entities.Usuario;
+import com.mlpz.spring.services.NotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,24 +22,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mlpz.spring.services.NotaService;
-import com.mlpz.spring.dto.Message;
-import com.mlpz.spring.entities.Asignatura;
-import com.mlpz.spring.entities.Curso;
-import com.mlpz.spring.entities.Nota;
-import com.mlpz.spring.entities.Usuario;
-
 @RestController
 @RequestMapping("/api/nota")
 @CrossOrigin(origins = "http://localhost:4200")
 public class NotaController {
 
-	@Autowired
-	private NotaService notaService;
+	private final NotaService notaService;
+
+	public NotaController(NotaService notaService) {
+		this.notaService = notaService;
+	}
 
 	@GetMapping("/")
 	public ResponseEntity<List<Nota>> findNotas(@RequestParam(required = false) String dniUsuario,
-			@RequestParam(required = false) String nombreCurso, @RequestParam(required = false) String nombreAsignatura){
+                                                @RequestParam(required = false) String nombreCurso, @RequestParam(required = false) String nombreAsignatura){
 		List<Nota> notas = notaService.findNotas(dniUsuario, nombreCurso, nombreAsignatura);
 		return new ResponseEntity<List<Nota>>(notas, HttpStatus.OK);
 	}

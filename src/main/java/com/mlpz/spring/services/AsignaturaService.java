@@ -2,12 +2,12 @@ package com.mlpz.spring.services;
 
 import java.util.List;
 
-import com.mlpz.spring.repositories.AsignaturaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mlpz.spring.entities.Asignatura;
+import com.mlpz.spring.repositories.AsignaturaRepository;
 
 @Service
 @Transactional

@@ -2,6 +2,8 @@ package com.mlpz.spring.controllers;
 
 import java.util.List;
 
+import com.mlpz.spring.entities.Curso;
+import com.mlpz.spring.services.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,17 +13,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mlpz.spring.entities.Curso;
-import com.mlpz.spring.services.CursoService;
-
 @RestController
 @RequestMapping("/api/curso")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CursoController {
 
-	@Autowired
-	private CursoService cursoService;
-	
+	private final CursoService cursoService;
+
+	public CursoController(CursoService cursoService) {
+		this.cursoService = cursoService;
+	}
+
 	@GetMapping("/")
 	public ResponseEntity<List<Curso>> findAll(){
 		List<Curso> cursos = cursoService.getAll();

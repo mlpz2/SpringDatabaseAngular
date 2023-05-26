@@ -182,19 +182,4 @@ public class Curso {
 		this.idA10 = idA10;
 	}
 
-//	public List<Integer> getAsignaturas(){
-//		List<Integer> aux = new ArrayList<Integer>();
-//		if(idA1 != null) aux.add(idA1);
-//		if(idA2 != null) aux.add(idA2);
-//		if(idA3 != null) aux.add(idA3);
-//		if(idA4 != null) aux.add(idA4);
-//		if(idA5 != null) aux.add(idA5);
-//		if(idA6 != null) aux.add(idA6);
-//		if(idA7 != null) aux.add(idA7);
-//		if(idA8 != null) aux.add(idA8);
-//		if(idA9 != null) aux.add(idA9);
-//		if(idA10 != null) aux.add(idA10);
-//		return aux;
-//	}
-
 }
